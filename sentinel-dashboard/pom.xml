@@ -101,7 +101,7 @@
         <dependency>
             <groupId>com.alibaba.csp</groupId>
             <artifactId>sentinel-datasource-nacos</artifactId>
-            <scope>test</scope>
+            <!--<scope>test</scope>-->
         </dependency>
         <!-- for Apollo rule publisher sample -->
         <dependency>
@@ -138,7 +138,7 @@
     </dependencies>
 
     <build>
-        <finalName>sentinel-dashboard</finalName>
+        <finalName>sentinel-dashboard-1.8.5</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
