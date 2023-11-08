@@ -29,7 +29,7 @@ import com.alibaba.nacos.api.config.ConfigService;
  * @author Eric Zhao
  * @since 1.4.0
  */
-@Component("degradeRuleNacosPublisher")
+@Component
 public class DegradeRuleNacosPublisher implements DynamicRulePublisher<List<DegradeRuleEntity>> {
 
     @Autowired

@@ -30,7 +30,7 @@ import com.alibaba.nacos.api.config.ConfigService;
  * @author Eric Zhao
  * @since 1.4.0
  */
-@Component("systemRuleNacosProvider")
+@Component
 public class SystemRuleNacosProvider implements DynamicRuleProvider<List<SystemRuleEntity>> {
 
     @Autowired
