@@ -60,8 +60,6 @@ public class DegradeController {
 
     @Autowired
     private RuleRepository<DegradeRuleEntity, Long> repository;
-    @Autowired
-    private SentinelApiClient sentinelApiClient;
     
     @Autowired
     @Qualifier("degradeRuleNacosProvider")
