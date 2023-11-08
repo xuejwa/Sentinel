@@ -81,7 +81,6 @@ public class DegradeController {
             return Result.ofFail(-1, "port can't be null");
         }
         try {
-//            List<DegradeRuleEntity> rules = sentinelApiClient.fetchDegradeRuleOfMachine(app, ip, port);
 			List<DegradeRuleEntity> rules = ruleProvider.getRules(app);
 			if (rules != null && !rules.isEmpty()) {
 				for (DegradeRuleEntity entity : rules) {
@@ -178,7 +177,6 @@ public class DegradeController {
 
     private boolean publishRules(String app, String ip, Integer port) {
         List<DegradeRuleEntity> rules = repository.findAllByMachine(MachineInfo.of(app, ip, port));
-//        return sentinelApiClient.setDegradeRuleOfMachine(app, ip, port, rules);
 		try {
 			rulePublisher.publish(app, rules);
 			return true;
