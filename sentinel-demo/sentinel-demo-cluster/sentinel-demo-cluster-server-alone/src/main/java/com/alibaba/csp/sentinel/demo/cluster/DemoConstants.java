@@ -20,7 +20,7 @@ package com.alibaba.csp.sentinel.demo.cluster;
  */
 public final class DemoConstants {
 
-    public static final String MICRO_SERVICES = "charge-service,order-service";
+    public static final String MICRO_SERVICES = "charge-service,order-service,cpc-public-base,cpc-public";
 
     public static final String FLOW_POSTFIX = "-flow-rules";
     public static final String PARAM_FLOW_POSTFIX = "-param-rules";
