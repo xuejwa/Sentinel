@@ -15,7 +15,7 @@
  */
 package com.alibaba.csp.sentinel.demo.cluster;
 
-import java.util.Collections;
+import java.util.*;
 
 import com.alibaba.csp.sentinel.cluster.server.ClusterTokenServer;
 import com.alibaba.csp.sentinel.cluster.server.SentinelDefaultTokenServer;
@@ -31,6 +31,13 @@ import com.alibaba.csp.sentinel.cluster.server.config.ServerTransportConfig;
  * @since 1.4.0
  */
 public class ClusterServerDemo {
+	
+    static {
+        System.setProperty("csp.sentinel.dashboard.server","localhost:8080");//控制台地址
+        System.setProperty("csp.sentinel.api.port","8719"); //sentinel端口
+        System.setProperty("project.name","token-server"); //服务名称
+        System.setProperty("csp.sentinel.log.use.pid","true"); //设置pid(可选)
+    }
 
     public static void main(String[] args) throws Exception {
         // Not embedded mode by default (alone mode).
@@ -42,7 +49,9 @@ public class ClusterServerDemo {
         ClusterServerConfigManager.loadGlobalTransportConfig(new ServerTransportConfig()
             .setIdleSeconds(600)
             .setPort(11111));
-        ClusterServerConfigManager.loadServerNamespaceSet(Collections.singleton(DemoConstants.APP_NAME));
+        
+        Set<String> serverNamespaceSet = new HashSet<>(Arrays.asList(DemoConstants.MICRO_SERVICES.split(",")));
+        ClusterServerConfigManager.loadServerNamespaceSet(serverNamespaceSet);
 
         // Start the server.
         tokenServer.start();
